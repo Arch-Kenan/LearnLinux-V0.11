@@ -58,7 +58,8 @@ sa_mask = 4
 sa_flags = 8
 sa_restorer = 12
 
-nr_system_calls = 72
+#这是系统调用总数。如果增删了系统调用，必须做相应修改
+nr_system_calls = 74
 
 /*
  * Ok, I get parallel printer interrupts while using the floppy for some
@@ -87,7 +88,7 @@ system_call:
 	pushl %ecx		# push %ebx,%ecx,%edx as parameters
 	pushl %ebx		# to the system call
 	movl $0x10,%edx		# set up ds,es to kernel space
-	mov %dx,%ds
+	mov %dx,%ds             # ds es point to GDT date discriptor    
 	mov %dx,%es
 	movl $0x17,%edx		# fs points to local data space
 	mov %dx,%fs

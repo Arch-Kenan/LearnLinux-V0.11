@@ -175,8 +175,8 @@ int main(int argc, char ** argv)
 		i += c;
 	}
 	
-//	if ((id=open(argv[3],O_RDONLY,0))<0)
-//		die("Unable to open 'system'");
+	if ((id=open(argv[3],O_RDONLY,0))<0)
+		die("Unable to open 'system'");
 //	if (read(id,buf,GCC_HEADER) != GCC_HEADER)
 //		die("Unable to read header of 'system'");
 //	if (((long *) buf)[5] != 0)
